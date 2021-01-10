@@ -11,7 +11,7 @@ steps:
   - sleep 5
   - redis-cli -h cache ping
 
-- name:check
+- name: check
   image: alpine
   commands:
   - cat world.txt
