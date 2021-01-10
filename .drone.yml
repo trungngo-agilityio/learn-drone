@@ -1,0 +1,22 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: greeting
+  image: alpine
+  commands:
+  - echo hello 
+  - echo hello > /tmp/world.txt
+  - sleep 5
+  - redis-cli -h cache ping
+
+steps:
+- name: check
+  image: alpine
+  commands:
+  - echo hello 
+  - cat /tmp/world.txt
+services:
+  - name: redis
+    image: redis
