@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: greeting
-  image: alpine
+  image: redis
   commands:
   - echo hello 
   - echo hello > /tmp/world.txt
@@ -16,6 +16,9 @@ steps:
   commands:
   - echo hello 
   - cat /tmp/world.txt
+
 services:
+  - name: hello-world
+    image: hello-world
   - name: redis
     image: redis
