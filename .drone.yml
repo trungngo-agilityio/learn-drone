@@ -7,18 +7,18 @@ steps:
   image: redis
   commands:
   - echo hello 
-  - echo hello > /tmp/world.txt
+  - echo hello > world.txt
   - sleep 5
   - redis-cli -h cache ping
 
-- name: check
+steps:
+- name:check
   image: alpine
   commands:
-  - echo hello 
-  - cat /tmp/world.txt
+  - cat world.txt
 
 services:
   - name: hello-world
     image: hello-world
-  - name: redis
+  - name: cache
     image: redis
